@@ -5,21 +5,31 @@ module.exports = {
   messages: {
     get: function (req, res) {
       let pathname = url.parse(req.url).pathname;
-      if (pathname === '/classes/messages') {
-        models.messages.get(res, 200);
-      } else {
-        models.messages.get(res, 404);
-      }
+      console.log(models);
+      models[pathname].get(req.body, function(err, data){
+        if (data.length === 0) {
+          res.end();
+        } else {
+          res.end(JSON.stringify(data));
+        }
+      });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      models.messages.post(req, res, 201);
+      let pathname = url.parse(req.url).pathname;
+      model[pathname].post(req.body);
+      res.end();
     } // a function which handles posting a message to the database
   },
 
   users: {
     // Ditto as above
     get: function (req, res) {},
-    post: function (req, res) {}
+    post: function (req, res) {
+      let pathname = url.parse(req.url).pathname;
+
+      models[pathname].post(req.body);
+      res.end();
+    }
   }
 };
 

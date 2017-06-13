@@ -3,23 +3,21 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  id int not null,
-  message char(255) not null,
+  id INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  username VARCHAR(20) NULL DEFAULT NULL,
+  message VARCHAR(200) NULL DEFAULT NULL,
+  roomname VARCHAR(20) NULL DEFAULT NULL
   primary key (id)
   -- foreign key messages (user) users (id)
 );
 
-CREATE TABLE users (
-  id Int not null, 
-  name char(20) not null,
-  primary key (id)
+CREATE TABLE user_id (
+  id INTEGER NULL AUTO_INCREMENT NULL, 
+  username VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (id)
 );
 
-CREATE TABLE rooms (
-  id int not null,
-  roomname char(20) not null,
-  primary key (id)
-);
+
 /* Create other tables and define schemas for them here! */
 
 
