@@ -11,7 +11,7 @@ CREATE TABLE messages (
   -- foreign key messages (user) users (id)
 );
 
-CREATE TABLE user_id (
+CREATE TABLE userid (
   id INTEGER NULL AUTO_INCREMENT NULL, 
   username VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (id)
